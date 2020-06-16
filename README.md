@@ -5,7 +5,7 @@ yschu7/oracle-xe-10g
 
 + based on the work done by Wei-Ming Wu <wnameless@gmail.com> on [wnameless/docker-oracle-xe-11g](https://github.com/wnameless/docker-oracle-xe-11g)
 
-+ Oracle Express Edition 10g Release 2 (10.2.0.1) 32-bit on Debian 7.0 Wheezy.
++ Oracle Express Edition 10g Release 2 (10.2.0.1) 32-bit on Debian 8.0 Jessie.
 
 + **The default characterset is AL32UTF8 and timezone is Asia/Taipei.**
 
@@ -43,10 +43,14 @@ Password for SYS & SYSTEM
 oracle
 ```
 
-Login by SSH
+Login by SSH and check DB characterset
 ```
 ssh root@localhost -p 49160
 password: admin
+
+su - oracle
+sqlplus / as sysdba
+SQL> select * from v$nls_parameters where parameter='NLS_CHARACTERSET';
 ```
 
 Login to web administrator on a browser:
